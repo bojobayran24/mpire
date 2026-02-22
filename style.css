@@ -145,7 +145,7 @@ img {
 }
 
 .logo-img {
-    height: 36px;
+    height: 52px;
     width: auto;
     object-fit: contain;
     filter: brightness(1.1);
@@ -273,7 +273,7 @@ img {
 }
 
 .hero-logo {
-    width: clamp(120px, 22vw, 240px);
+    width: clamp(180px, 30vw, 340px);
     height: auto;
     filter: drop-shadow(0 4px 30px rgba(74, 144, 217, 0.2));
     animation: float 6s ease-in-out infinite;

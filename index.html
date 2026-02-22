@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPIRE Official</title>
+
+    <!-- Favicon (dynamically zoomed via canvas) -->
+    <link rel="icon" id="dynamic-favicon" type="image/png" href="mpirelogo.png">
+    <link rel="apple-touch-icon" href="mpirelogo.png">
+    <script>
+        (function () {
+            var img = new Image();
+            img.onload = function () {
+                var canvas = document.createElement('canvas');
+                canvas.width = 64;
+                canvas.height = 64;
+                var ctx = canvas.getContext('2d');
+                // Zoom in: draw the center 60% of the image stretched to fill the canvas
+                var zoom = 0.6;
+                var sx = img.width  * (1 - zoom) / 2;
+                var sy = img.height * (1 - zoom) / 2;
+                var sw = img.width  * zoom;
+                var sh = img.height * zoom;
+                ctx.drawImage(img, sx, sy, sw, sh, 0, 0, 64, 64);
+                document.getElementById('dynamic-favicon').href = canvas.toDataURL('image/png');
+            };
+            img.src = 'mpirelogo.png';
+        })();
+    </script>
+
+    <!-- Google Fonts: Montserrat (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         HEADER / NAVIGATION
+         ═══════════════════════════════════════════════════════════════ -->
+    <header class="site-header" id="site-header">
+        <div class="container nav-container">
+            <!-- Logo / Brand -->
+            <a href="#home" class="logo">
+                <img src="mpirelogo.png" alt="Mpire Official Logo" class="logo-img">
+                <img src="obplogo.png" alt="OBP Logo" class="logo-img">
+                <span class="logo-text">MPIRE<span class="logo-accent">©</span></span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#tracks" class="nav-link">Tracks</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hamburger Menu (Mobile) -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         HERO SECTION
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logos">
+                <img src="mpirelogo.png" alt="Mpire Official" class="hero-logo">
+                <img src="obplogo.png" alt="OBP - Original Batang Pinas" class="hero-logo">
+            </div>
+            <p class="hero-tag">ORIGINAL BATANG PINAS</p>
+            <h1 class="hero-title">
+                MPIRE <span class="gold">OFFICIAL</span>
+            </h1>
+            <p class="hero-subtitle">Ransacc&nbsp;&bull;&nbsp;DA¥TONA&nbsp;&bull;&nbsp;Spooki Blu&nbsp;&bull;&nbsp;Blvgatti&nbsp;&bull;&nbsp;Kaser1200</p>
+            <a href="#tracks" class="btn btn-primary" id="listen-now-btn">
+                <i class="fas fa-play"></i> Listen Now
+            </a>
+        </div>
+        <!-- Animated scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         TRACKS / MUSIC SECTION
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="section tracks-section" id="tracks">
+        <div class="container">
+            <h2 class="section-title">Our <span class="gold">Tracks</span></h2>
+            <p class="section-subtitle">Mpire blends Tagalog bars with hard-hitting trap production, creating a sound that represents the streets they came from—ranging from gritty anthems to high-energy tracks that define the new sound of Pinoy hip-hop.</p>
+
+            <!-- Filter Buttons -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="mv">Music Videos</button>
+                <button class="filter-btn" data-filter="audio">Official Audio</button>
+            </div>
+
+            <!-- Video Grid -->
+            <div class="tracks-grid" id="tracks-grid">
+
+                <!-- KAGABI -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/IToucfy_yxc" title="KAGABI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">KAGABI</h3>
+                        <p class="track-artist">RANSACC, DA¥TONA, $aint Dej &amp; Spooki Blu</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="KAGABI"
+                            data-artist="RANSACC, DA¥TONA, $aint Dej &amp; Spooki Blu"
+                            data-desc="KAGABI (Official Music Video)&#10;&#10;Directed By Red Espena of @FrameUpMNL&#10;Produced By RANSACC&#10;Mixed &amp; Mastered By @CentGotBeats&#10;&#10;Written and Performed:&#10;RANSACC&#10;DA¥TONA&#10;Spooki Blu&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;MPIRE OFFICIAL 2023&#10;&#10;#mpireofficial #kagabi #pinoyhiphop">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PERA PERA (MV) -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/bWDTEX0pMbg" title="PERA PERA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">PERA PERA</h3>
+                        <p class="track-artist">Nump, Ghozt, Spooki Blu, Flyboy &amp; DA¥TONA</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="PERA PERA"
+                            data-artist="Nump, Ghozt, Spooki Blu, Flyboy &amp; DA¥TONA"
+                            data-desc="PERA PERA - Mpire (Official Music Video)&#10;&#10;Directed By Womp&#10;Produced By SNAP&#10;Mixed &amp; Mastered By @CentGotBeats&#10;&#10;Written and Performed:&#10;Nump&#10;Ghozt&#10;Spooki Blu&#10;FlyBoy&#10;DA¥TONA&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;MPIRE OFFICIAL 2024">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DM2KLL -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/zEELZExhjJQ" title="DM2KLL" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">DM2KLL</h3>
+                        <p class="track-artist">DA¥TONA &amp; Spooki Blu</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="DM2KLL"
+                            data-artist="DA¥TONA &amp; Spooki Blu"
+                            data-desc="DM2KLL - Mpire (Official Music Video)&#10;&#10;Directed By Red Espena of @FrameUpMNL&#10;Produced By SNAP&#10;Mixed &amp; Mastered By @CentGotBeats&#10;&#10;Written and Performed:&#10;DA¥TONA&#10;Spooki Blu&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;MPIRE OFFICIAL 2023">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MACC TOWN -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/XCXDMkUPR9Q" title="MACC TOWN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">MACC TOWN</h3>
+                        <p class="track-artist">DA¥TONA</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="MACC TOWN"
+                            data-artist="DA¥TONA"
+                            data-desc="MACC TOWN (Official Audio)&#10;&#10;Produced By SNAP&#10;&#10;Written and Performed:&#10;DA¥TONA&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;MPIRE OFFICIAL">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BOMBA (MV) -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Gwct3Jjd_q0" title="BOMBA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">BOMBA</h3>
+                        <p class="track-artist">RANSACC &amp; DA¥TONA</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="BOMBA"
+                            data-artist="RANSACC &amp; DA¥TONA"
+                            data-desc="BOMBA (Official Music Video)&#10;&#10;Shot &amp; Directed By Womp Womp&#10;Produced By RANSACC&#10;&#10;Written and Performed:&#10;RANSACC&#10;DA¥TONA&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Drive By -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/fnYmHmKVUOI" title="Drive By" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Drive By</h3>
+                        <p class="track-artist">RANSACC, Blvgatti, Clifford Shakur, HSTLA Gab, Kaser1200, DA¥TONA &amp; Spooki Blu</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="Drive By"
+                            data-artist="RANSACC, Blvgatti, Clifford Shakur, HSTLA Gab, Kaser1200, DA¥TONA &amp; Spooki Blu"
+                            data-desc="Track : Drive By&#10;&#10;Written and Performed :&#10;RANSACC&#10;Blvgatti&#10;Clifford Shakur&#10;HSTLA Gab&#10;Kaser1200&#10;DA¥TONA&#10;Spooki Blu&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;℗ 2025 Mpire&#10;Released on: 2025-09-08">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Newness -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/TBVFGeps0nU" title="Newness" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Newness</h3>
+                        <p class="track-artist">Spooki Blu</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="Newness"
+                            data-artist="Spooki Blu"
+                            data-desc="Newness (Official Audio)&#10;&#10;Produced By League of Paul&#10;&#10;Written and Performed:&#10;Spooki Blu&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- intRo -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/94_NIuRzbMo" title="intRo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">intRo</h3>
+                        <p class="track-artist">DA¥TONA</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="intRo"
+                            data-artist="DA¥TONA"
+                            data-desc="intRo (Official Music Video)&#10;&#10;Produced By RANSACC&#10;&#10;Written and Performed:&#10;DA¥TONA&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bihag -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/9KyVR_-9LQc" title="Bihag" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Bihag</h3>
+                        <p class="track-artist">RANSACC</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="Bihag"
+                            data-artist="RANSACC"
+                            data-desc="Bihag (Official Audio)&#10;&#10;Written and Performed:&#10;RANSACC&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pray For Me Pt. 1 -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/J8E14Gm5xX8" title="Pray For Me Pt. 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Pray For Me Pt. 1</h3>
+                        <p class="track-artist">$aint Dej</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="Pray For Me Pt. 1"
+                            data-artist="$aint Dej"
+                            data-desc="Pray For Me Pt. 1 - $aint Dej (Official Music Video)&#10;&#10;Directed By Blues Wayne&#10;&#10;Written and Performed:&#10;$aint Dej&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;MPIRE OFFICIAL 2024">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pit Stop -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/wAynQDI8dV0" title="Pit Stop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Pit Stop</h3>
+                        <p class="track-artist">DA¥TONA</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="Pit Stop"
+                            data-artist="DA¥TONA"
+                            data-desc="Pit Stop - DA¥TONA (Official Music Video)&#10;&#10;Directed By Blues Wayne&#10;Shot By PJ&#10;Produced By RANSACC&#10;&#10;Written and Performed:&#10;DA¥TONA&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;MPIRE OFFICIAL 2024">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- High AF (MV) -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/NCSvJJDFqjw" title="High AF" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">High AF</h3>
+                        <p class="track-artist">RANSACC &amp; $aint Jed</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="High AF"
+                            data-artist="RANSACC &amp; $aint Jed"
+                            data-desc="High AF - RANSACC &amp; $aint Jed (Official Music Video)&#10;&#10;Directed By Womp&#10;Produced By RANSACC&#10;Mixed &amp; Mastered By @CentGotBeats&#10;&#10;Written and Performed:&#10;RANSACC&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;MPIRE OFFICIAL 2024">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Business Class (MV) -->
+                <div class="track-card" data-type="mv">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/cZ6u4YUS_9U" title="Business Class" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Business Class</h3>
+                        <p class="track-artist">DA¥TONA &amp; Spooki Blu</p>
+                        <span class="track-badge badge-mv"><i class="fas fa-video"></i> Music Video</span>
+                        <button class="show-more-btn"
+                            data-title="Business Class"
+                            data-artist="DA¥TONA &amp; Spooki Blu"
+                            data-desc="Business Class (Official Music Video)&#10;&#10;Directed By Mpire Official&#10;Produced By SNAP&#10;Mixed &amp; Mastered By @CentGotBeats&#10;&#10;Written and Performed:&#10;DA¥TONA&#10;Spooki Blu&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;MPIRE OFFICIAL 2023">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PERA PERA (Audio) -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/F-PdvdWZ3sM" title="PERA PERA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">PERA PERA</h3>
+                        <p class="track-artist">Ghozt, Spooki Blu, Flyboy &amp; DA¥TONA</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="PERA PERA"
+                            data-artist="Ghozt, Spooki Blu, Flyboy &amp; DA¥TONA"
+                            data-desc="Track : PERA PERA&#10;&#10;Written and Performed :&#10;Ghozt&#10;Spooki Blu&#10;Flyboy&#10;DA¥TONA&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ibigay -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/9tOCjOY4PQA" title="Ibigay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Ibigay</h3>
+                        <p class="track-artist">RANSACC</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="Ibigay"
+                            data-artist="RANSACC"
+                            data-desc="Track : Ibigay&#10;&#10;Written and Performed :&#10;RANSACC&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;Produced by RANSACC">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- High AF (Audio) -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/NgIBkcX3AE4" title="High AF" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">High AF</h3>
+                        <p class="track-artist">RANSACC &amp; $aint Dej</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="High AF"
+                            data-artist="RANSACC &amp; $aint Dej"
+                            data-desc="Track : High AF&#10;&#10;Written and Performed :&#10;RANSACC&#10;$aint Dej&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;produced by RANSACC">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BUSINESS CLASS (Audio) -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/GLvflTGBXhs" title="BUSINESS CLASS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">BUSINESS CLASS</h3>
+                        <p class="track-artist">DA¥TONA &amp; Spooki Blu</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="BUSINESS CLASS"
+                            data-artist="DA¥TONA &amp; Spooki Blu"
+                            data-desc="Track : BUSINESS CLASS&#10;&#10;Written and Performed :&#10;DA¥TONA&#10;Spooki Blu&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- THE CLEAVERS -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/0i3LnILJvj8" title="THE CLEAVERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">THE CLEAVERS</h3>
+                        <p class="track-artist">Spooki Blu &amp; DA¥TONA</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="THE CLEAVERS"
+                            data-artist="Spooki Blu &amp; DA¥TONA"
+                            data-desc="Track : THE CLEAVERS&#10;&#10;Written and Performed :&#10;Spooki Blu&#10;DA¥TONA&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bomba (Audio) -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/DkV2cfADbSE" title="Bomba" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Bomba</h3>
+                        <p class="track-artist">RANSACC &amp; DA¥TONA</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="Bomba"
+                            data-artist="RANSACC &amp; DA¥TONA"
+                            data-desc="Track : Bomba&#10;&#10;Written and Performed :&#10;RANSACC&#10;DA¥TONA&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;produced by RANSACC">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Baddest -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/GYaTefP6I18" title="Baddest" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Baddest</h3>
+                        <p class="track-artist">Spooki Blu, DA¥TONA &amp; Flyboy</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="Baddest"
+                            data-artist="Spooki Blu, DA¥TONA &amp; Flyboy"
+                            data-desc="Track : Baddest&#10;&#10;Written and Performed :&#10;Spooki Blu&#10;DA¥TONA&#10;Flyboy&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;℗ 2025 Mpire&#10;Released on: 2025-09-30">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lihim -->
+                <div class="track-card" data-type="audio">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/pxZdaBFtdJE" title="Lihim" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="track-info">
+                        <h3 class="track-title">Lihim</h3>
+                        <p class="track-artist">RANSACC &amp; Yo Josh</p>
+                        <span class="track-badge badge-audio"><i class="fas fa-music"></i> Official Audio</span>
+                        <button class="show-more-btn"
+                            data-title="Lihim"
+                            data-artist="RANSACC &amp; Yo Josh"
+                            data-desc="Track : Lihim&#10;&#10;Written and Performed :&#10;RANSACC&#10;Yo Josh&#10;&#10;CONNECT WITH MPIRE OFFICIAL&#10;facebook.com/mpire.officialPH&#10;&#10;℗ 2025 Mpire&#10;Released on: 2025-08-08">
+                            <i class="fas fa-align-left"></i> Description
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         DESCRIPTION MODAL
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="desc-modal-overlay" id="desc-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-track-title">
+        <div class="desc-modal">
+            <button class="desc-modal-close" id="desc-modal-close" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="desc-modal-header">
+                <h3 class="desc-modal-title" id="modal-track-title"></h3>
+                <p class="desc-modal-artist" id="modal-track-artist"></p>
+            </div>
+            <div class="desc-modal-body" id="modal-track-desc"></div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         ABOUT SECTION
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="section about-section" id="about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2 class="section-title">About <span class="gold">Mpire</span></h2>
+                <p>
+                    <strong>Mpire Official</strong> is a Filipino hip-hop collective under <strong>OBP (Original Batang Pinas)</strong>, 
+                    repping raw street culture, Southeast-Asian grit, and unapologetic lyricism.
+                    Founded in the Philippines, the group brings together artists like <strong>Ransacc</strong>,
+                    <strong>DA¥TONA</strong>, <strong>$aint Dej</strong>, <strong>Spooki Blu</strong>, <strong>Blvgatti</strong>, and <strong>Kaser1200</strong> — 
+                    each pushing their own flavour while riding under one empire.
+                </p>
+                <p>
+                    Mpire blends Tagalog bars with hard-hitting trap production, creating a sound that
+                    represents the streets they came from—ranging from gritty anthems to high-energy tracks
+                    that define the new sound of Pinoy hip-hop.
+                </p>
+                <div class="stats-row">
+                    <div class="stat">
+                        <span class="stat-number">835+</span>
+                        <span class="stat-label">Subscribers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Releases</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">80K+</span>
+                        <span class="stat-label">Total Views</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <!-- Brand graphics -->
+                <div class="globe-graphic">
+                    <img src="mpirelogo.png" alt="Mpire Official" class="about-logo">
+                    <img src="obplogo.png" alt="OBP" class="about-logo about-logo-obp">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         CONTACT SECTION
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span class="gold">Touch</span></h2>
+            <p class="section-subtitle">For bookings, features, and business inquiries.</p>
+
+            <div class="contact-grid">
+                <a href="mailto:officialmpireph@gmail.com" class="contact-card" target="_blank" rel="noopener">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>officialmpireph@gmail.com</p>
+                </a>
+                <a href="https://www.youtube.com/@MpirePH" class="contact-card" target="_blank" rel="noopener">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube</h3>
+                    <p>@MpirePH</p>
+                </a>
+                <a href="https://www.instagram.com/mpire.officialph/" class="contact-card" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>@mpire.officialph</p>
+                </a>
+                <a href="https://www.facebook.com/mpire.officialPH" class="contact-card" target="_blank" rel="noopener">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook</h3>
+                    <p>Mpire Official PH</p>
+                </a>
+                <a href="https://open.spotify.com/artist/3l1664MZkJMaQBHKDd8kOb" class="contact-card" target="_blank" rel="noopener">
+                    <i class="fab fa-spotify"></i>
+                    <h3>Spotify</h3>
+                    <p>MPIRE</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logos">
+                    <img src="mpirelogo.png" alt="Mpire Official" class="footer-logo">
+                    <img src="obplogo.png" alt="OBP" class="footer-logo">
+                </div>
+                <p>Original Batang Pinas. No Compromise.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/@MpirePH" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/mpire.officialph/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/mpire.officialPH" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://open.spotify.com/artist/3l1664MZkJMaQBHKDd8kOb" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Mpire Official. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
